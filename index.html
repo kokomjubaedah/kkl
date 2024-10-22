@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Spesial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            font-size: 42px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 42px;
+            margin: 5px;
+        }
+        #display {
+            font-size: 42px;
+            font-weight: normal;
+            color: black;
+        }
+        .highlight {
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+
+<h1>Masukkan input 1+1</h1>
+<input type="text" id="display" disabled />
+
+<br><br>
+
+<button onclick="insert('1')">1</button>
+<button onclick="insert('+')">+</button>
+<button onclick="insert('1')">1</button>
+<button onclick="calculate()">=</button>
+<button onclick="clearDisplay()">hapus</button>
+
+<script>
+    function insert(value) {
+        document.getElementById("display").value += value;
+    }
+
+    function clearDisplay() {
+        document.getElementById("display").value = '';
+    }
+
+    function calculate() {
+        let input = document.getElementById("display").value;
+        if (input === "1+1") {
+            document.getElementById("display").value = "ASU";
+        } else {
+            try {
+                document.getElementById("display").value = eval(input);
+            } catch (e) {
+                document.getElementById("display").value = "Error";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
